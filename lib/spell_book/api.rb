@@ -11,13 +11,10 @@ class API
     end
 
     def self.create_spells
-        self.get_api_data("https://api.open5e.com/spells/?limit=1000").each do |outer_key, outer_value|
-            #puts "#{outer_key}" "#{outer_value}"
+        self.get_api_data("https://api.open5e.com/spells/?limit=1").each do |outer_key, outer_value|
             if (outer_key == "results")
                 outer_value.each do |value|
-                  value.each do |inner_key, outer_key|
-                    puts "#"
-                  end
+                  new_person = Spells.new(value)
                 end
             end
         end
