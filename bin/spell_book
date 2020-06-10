@@ -2,3 +2,5 @@
  
 require_relative '../config/environment'
 
+API.start_object_creation
+SpellBook.start
