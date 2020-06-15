@@ -133,8 +133,8 @@ class SpellBook
       elsif (search_method_input == 5)
         exit
       else
-        self.start_search
-        self.cli.print_enter_valid_input
+        self.cli.print_choose_search_method
+        search_method_input = self.cli.gets_user_input.to_i
       end
     end
   end
