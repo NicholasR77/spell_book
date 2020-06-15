@@ -1,4 +1,5 @@
-require 'bundler'
-Bundler.require
-
-require_all 'lib'
+require_relative '../lib/spell_book.rb'
+require_relative '../lib/spell_book/api.rb'
+require_relative '../lib/spell_book/cli.rb'
+require_relative '../lib/spell_book/dnd_class.rb'
+require_relative '../lib/spell_book/dnd_spell.rb'
