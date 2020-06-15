@@ -9,4 +9,5 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
   spec.metadata["source_code_uri"] = "https://github.com/NicholasR77/spell_book"
+
 end
