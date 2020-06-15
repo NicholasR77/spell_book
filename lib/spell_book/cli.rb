@@ -25,7 +25,7 @@ class CLI
 
     def print_class_has_no_spells
         self.print_row
-        puts "That class does not know or utilize spells. Please enter a new class."
+        puts "That class does not know or utilize spells at this time. Please enter a new class."
     end
 
     def print_choose_search_method
