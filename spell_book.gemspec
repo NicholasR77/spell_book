@@ -10,4 +10,6 @@ Gem::Specification.new do |spec|
 
   spec.metadata["source_code_uri"] = "https://github.com/NicholasR77/spell_book"
 
+  spec.executables << 'spell_book'
+
 end
