@@ -2,11 +2,14 @@ class CLI
     def print_row
         puts "---------------------"        
     end
+
     def print_welcome
         self.print_row
         puts "Welcome to the class SpellBook tool using the D&D 5e SRD API."
         puts "This tool allows you to find the spells for any D&D 5e Class."
     end
+
+    #Iterating through each DndClass instance and displaying the name attribute.
     def print_class_choice_list
         self.print_row
         puts "Here are the classes available to search from:"
@@ -14,14 +17,20 @@ class CLI
             puts "#{dnd_class.name}"
         end
     end
+
     def print_choose_class
         self.print_row
-        puts "Please enter the exact name of the class of which you want to view spells, such Barbarian or Cleric. Capitilzation does not matter."
+        puts "Please enter the exact name of the class of which you want to view spells, such as Bard or Cleric. Capitilzation does not matter."
+    end
+
+    def print_class_has_no_spells
+        self.print_row
+        puts "That class does not know or utilize spells. Please enter a new class."
     end
 
     def print_choose_search_method
         self.print_row
-        puts "Please enter the number for how you want to proceed:"
+        puts "Please enter a new search option:"
         puts "1: Search spells by name"
         puts "2: Search spells by level"
         puts "3: Search spells by school of magic"
@@ -36,7 +45,7 @@ class CLI
 
     def print_choose_spell_level
         self.print_row
-        puts "Please enter the spell level you want to view as 0 through 9, 0 being cantrips. If you want to view mutliple spell levels, please enter each spell level followed by a comma, such as: 0, 1, 2."
+        puts "Please enter the spell level you want to view as 0 through 9, 0 being cantrips. If you want to view multiple spell levels, please enter each spell level followed by a comma, such as: 0, 1, 2."
     end
 
     def print_choose_spell_school
@@ -59,11 +68,7 @@ class CLI
         puts "Please enter a valid spell level of 0 through 9, 0 being cantrips. If you want to view mutliple spell levels, please enter each spell level followed by a comma, such as: 0, 1, 2."
     end
 
-    def print_loading_spells_message
-        self.print_row
-        puts "One moment as we load your spells...."
-    end
-
+    #Given an array of DnDSpell instances, iterates through the array and displays the spell's attributes.
     def print_spell_list(dnd_spell_input_arr)
         self.print_row
         puts "Here is a list of spells that fit that search:"
@@ -85,7 +90,9 @@ class CLI
             puts "Classes Available for Use: #{dnd_spell_input.dnd_class}"
             puts "Archetype Available for Use: #{dnd_spell_input.archetype}"
             puts "Circles Available for Use: #{dnd_spell_input.circles}"
+            sleep(0.8)
         end
+        sleep(2)
     end
 
     def gets_user_input

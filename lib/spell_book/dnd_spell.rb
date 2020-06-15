@@ -6,7 +6,6 @@ class DnDSpell
     def initialize(attributes)
         attributes.each {|key,value| self.send(("#{key}="), value)}
         self.sb_dnd_class = []
-
         @@all << self
     end
 

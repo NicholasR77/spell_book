@@ -2,13 +2,15 @@ require 'net/http'
 require 'json'
 
 class API
-    def self.get_api_data(url)
+    #Recieving API data for provided URL.
+    def get_api_data(url)
          uri = URI(url)
          response = Net::HTTP.get(uri)
          JSON.parse(response)
     end
 
-    def self.create_objects(url, class_input)
+    #Instantianting objects for my classes with the data from the API - using Metaprogramming to send the class type the results key from the API data.
+    def create_objects(url, class_input)
         self.get_api_data(url).each do |outer_key, outer_value|
             if (outer_key == "results")
                 outer_value.each do |value|
@@ -18,14 +20,10 @@ class API
         end
     end
 
-    def self.start_object_creation
-      API.create_objects("https://api.open5e.com/classes/?limit=1000", DnDClass)
-      API.create_objects("https://api.open5e.com/spells/?limit=1000", DnDSpell)
-      DnDSpell.associate_dnd_class
+    #Calling the create objects method above with given classes and url's
+    def start_object_creation
+      self.create_objects("https://api.open5e.com/classes/?limit=1000", DnDClass)
+      self.create_objects("https://api.open5e.com/spells/?limit=1000", DnDSpell)
     end
 
 end
-
-#API.start_object_creation
-#test = DnDSpell.all.find{|spell| spell.name == "Acid Arrow"}
-#test.sb_dnd_class

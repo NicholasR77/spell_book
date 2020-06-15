@@ -2,6 +2,5 @@
  
 require_relative '../config/environment'
 
-API.start_object_creation
 new_spellbook = SpellBook.new()
 new_spellbook.start_search
